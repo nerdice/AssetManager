@@ -6,13 +6,10 @@ use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+/*class DatabaseSeeder extends Seeder
 {
     use WithoutModelEvents;
 
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
         // User::factory(10)->create();
@@ -21,5 +18,21 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+    }
+}
+*/
+
+class DatabaseSeeder extends Seeder
+{
+    public function run(): void
+    {
+        $this->call([
+            AssetTypeSeeder::class,
+            ComponentTypeSeeder::class,
+        ]);
+
+        /*if (app()->environment('local')) {
+            $this->call(DemoDataSeeder::class);
+        }*/
     }
 }

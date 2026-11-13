@@ -1,3 +1,127 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* AssetManager: edit these tokens to change the theme everywhere. */
+:root, [data-bs-theme="dark"] {
+    color-scheme: dark;
+    --am-accent: #b99aff;
+    --am-panel: #1b1724;
+    --bs-body-bg: #121018;
+    --bs-body-bg-rgb: 18, 16, 24;
+    --bs-body-color: #eeeaf5;
+    --bs-body-color-rgb: 238, 234, 245;
+    --bs-emphasis-color: #faf8ff;
+    --bs-emphasis-color-rgb: 250, 248, 255;
+    --bs-secondary-color: #b7afc6;
+    --bs-secondary-color-rgb: 183, 175, 198;
+    --bs-tertiary-color: #a49bb5;
+    --bs-secondary-bg: #231e2d;
+    --bs-tertiary-bg: #19151f;
+    --bs-tertiary-bg-rgb: 25, 21, 31;
+    --bs-border-color: #393044;
+    --bs-border-color-translucent: rgba(185, 154, 255, .16);
+    --bs-primary: #b99aff;
+    --bs-primary-rgb: 185, 154, 255;
+    --bs-success-rgb: 110, 217, 166;
+    --bs-danger-rgb: 255, 135, 156;
+    --bs-warning-rgb: 255, 179, 107;
+    --bs-info-rgb: 155, 199, 255;
+    --bs-link-color: #c4aaff;
+    --bs-link-color-rgb: 196, 170, 255;
+    --bs-link-hover-color: #dfd0ff;
+    --bs-link-hover-color-rgb: 223, 208, 255;
+    --bs-focus-ring-color: rgba(185, 154, 255, .3);
+    --bs-font-sans-serif: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+body {
+    background: radial-gradient(ellipse at 85% 0%, rgba(133, 81, 214, .09), transparent 42rem), var(--bs-body-bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4, h5, h6 { color: var(--bs-emphasis-color); letter-spacing: -.035em; }
+h1, h2, h3 { font-weight: 650; }
+h5, h6 { line-height: 1.4; }
+::selection { background: #674b91; color: #fff; }
+a, button, input, select, textarea { touch-action: manipulation; }
+:focus-visible { outline: 3px solid var(--am-accent); outline-offset: 3px; }
+[x-cloak] { display: none !important; }
+.am-navbar { background: rgba(25, 21, 31, .96); border-bottom: 1px solid var(--bs-border-color); padding-block: 1rem; }
+.navbar-brand { font-size: 1.35rem; font-weight: 700; letter-spacing: -.055em; margin-right: 2.5rem; }
+.navbar-brand span { color: var(--am-accent); }
+.navbar .nav-link { color: var(--bs-secondary-color); padding: .5rem .85rem !important; border-radius: .55rem; font-size: .92rem; }
+.navbar .nav-link:hover { color: #fff; background: #272032; }
+.navbar .nav-link.active { color: #d8c5ff; background: #2d223e; }
+.navbar-toggler { border-color: var(--bs-border-color); }
+main > h3.text-center { text-align: left !important; padding-block: 1.6rem .8rem; }
+.card {
+    --bs-card-bg: var(--am-panel);
+    --bs-card-border-color: var(--bs-border-color);
+    --bs-card-cap-bg: #211b2b;
+    --bs-card-border-radius: 1rem;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, .12);
+    overflow-wrap: anywhere;
+}
+.card.border-0 { border: 1px solid var(--bs-border-color) !important; }
+.card.border-secondary { border-color: var(--bs-border-color) !important; }
+.card-header { padding: 1rem 1.5rem; }
+.card-subtitle { line-height: 1.55; }
+.card-body > hr { opacity: 1; border-color: var(--bs-border-color); }
+.am-control-panel .card-subtitle { margin-bottom: .7rem; }
+.am-control-panel .btn { margin-bottom: 1.5rem !important; }
+.am-auth-card { max-width: 32rem; }
+.btn { border-radius: .6rem; font-weight: 600; padding: .6rem 1rem; transition: background-color .15s, border-color .15s, box-shadow .15s; }
+.btn-sm { padding: .4rem .8rem; }
+.btn-primary {
+    --bs-btn-color: #20142f; --bs-btn-bg: #b99aff; --bs-btn-border-color: #b99aff;
+    --bs-btn-hover-color: #20142f; --bs-btn-hover-bg: #cbb4ff; --bs-btn-hover-border-color: #cbb4ff;
+    --bs-btn-active-color: #20142f; --bs-btn-active-bg: #ac86f3; --bs-btn-active-border-color: #ac86f3;
+    --bs-btn-disabled-color: #20142f; --bs-btn-disabled-bg: #b99aff; --bs-btn-disabled-border-color: #b99aff;
+    --bs-btn-focus-shadow-rgb: 185, 154, 255;
+}
+.btn-outline-primary {
+    --bs-btn-color: #c4aaff; --bs-btn-border-color: #7857a8;
+    --bs-btn-hover-color: #20142f; --bs-btn-hover-bg: #c4aaff; --bs-btn-hover-border-color: #c4aaff;
+    --bs-btn-active-color: #20142f; --bs-btn-active-bg: #b99aff; --bs-btn-active-border-color: #b99aff;
+    --bs-btn-disabled-color: #b7afc6; --bs-btn-disabled-border-color: #51465f;
+    --bs-btn-focus-shadow-rgb: 185, 154, 255;
+}
+.btn-outline-secondary { --bs-btn-color: #c5bdd2; --bs-btn-border-color: #51465f; --bs-btn-hover-bg: #302738; --bs-btn-hover-border-color: #756386; --bs-btn-active-bg: #302738; }
+.btn-outline-danger { --bs-btn-color: #ff879c; --bs-btn-border-color: #925063; --bs-btn-hover-color: #241017; --bs-btn-hover-bg: #ff879c; --bs-btn-hover-border-color: #ff879c; }
+.btn:disabled, .btn.disabled { opacity: .5; }
+.form-control, .form-select, .input-group-text {
+    background-color: #141119; border-color: #4b4058; color: var(--bs-body-color); border-radius: .6rem; min-height: 2.75rem;
+}
+.form-control::placeholder { color: #a49bb5; opacity: 1; }
+.form-control:focus, .form-select:focus { color: var(--bs-body-color); background-color: #191420; border-color: var(--am-accent); box-shadow: 0 0 0 .2rem rgba(185,154,255,.16); }
+.form-control:disabled, .form-select:disabled { background-color: #262030; color: #a49bb5; }
+.form-label { color: #ded6eb; font-size: .9rem; font-weight: 550; }
+.form-check-input { background-color: #141119; border-color: #776787; }
+.form-check-input:checked { background-color: #8059bb; border-color: #b99aff; }
+.form-check-input:focus { border-color: #b99aff; box-shadow: 0 0 0 .2rem rgba(185,154,255,.2); }
+.form-text, .link-secondary { color: var(--bs-secondary-color) !important; }
+.invalid-feedback { color: #ff879c; }
+input:-webkit-autofill { -webkit-text-fill-color: #eeeaf5; box-shadow: 0 0 0 1000px #21192e inset; caret-color: #eeeaf5; }
+.table { --bs-table-bg: transparent; --bs-table-color: var(--bs-body-color); --bs-table-border-color: var(--bs-border-color); --bs-table-striped-bg: #241c30; --bs-table-hover-bg: #2b2237; }
+.list-group { --bs-list-group-bg: var(--am-panel); --bs-list-group-color: var(--bs-body-color); --bs-list-group-border-color: var(--bs-border-color); --bs-list-group-action-hover-bg: #2b2237; }
+.pagination { --bs-pagination-bg: #1b1724; --bs-pagination-color: #c4aaff; --bs-pagination-border-color: #393044; --bs-pagination-hover-bg: #30243f; --bs-pagination-hover-color: #fff; --bs-pagination-hover-border-color: #7857a8; --bs-pagination-active-bg: #b99aff; --bs-pagination-active-color: #20142f; --bs-pagination-active-border-color: #b99aff; --bs-pagination-disabled-bg: #17131e; --bs-pagination-disabled-color: #a49bb5; --bs-pagination-disabled-border-color: #393044; --bs-pagination-focus-bg: #30243f; --bs-pagination-focus-color: #fff; }
+.dropdown-menu { --bs-dropdown-bg: #211b2b; --bs-dropdown-link-hover-bg: #342641; --bs-dropdown-link-active-bg: #674b91; }
+.alert { border-radius: .75rem; }
+.bg-white, .bg-light { background-color: var(--am-panel) !important; }
+.text-dark, .text-black { color: var(--bs-body-color) !important; }
+footer { margin-top: auto; }
+footer .badge { background: #30243f !important; color: #d8c5ff !important; font-weight: 500; border: 1px solid #514064; }
+footer > div { max-width: 1320px; margin-inline: auto; }
+/* Alpine modal remains compatible with Breeze's account-deletion events. */
+.overflow-y-hidden { overflow-y: hidden; }
+.am-modal { position: fixed; inset: 0; z-index: 1060; overflow-y: auto; padding: 5vh 1rem; }
+.am-modal-backdrop, .am-modal-shade { position: fixed; inset: 0; }
+.am-modal-shade { background: rgba(8, 5, 13, .8); }
+.am-modal-panel { position: relative; margin: 0 auto; width: 100%; max-width: 42rem; border: 1px solid var(--bs-border-color); border-radius: 1rem; background: var(--am-panel); box-shadow: 0 24px 80px #0008; }
+.am-modal-sm { max-width: 24rem; }.am-modal-md { max-width: 28rem; }.am-modal-lg { max-width: 32rem; }.am-modal-xl { max-width: 36rem; }
+.am-stack > * + * { margin-top: 1.5rem; }
+@media (max-width: 575.98px) {
+    .navbar-brand { margin-right: .75rem; }
+    .card-body.p-4 { padding: 1.2rem !important; }
+    .card[style*="width: 24rem"], .card[style*="width: 18rem"] { width: 100% !important; }
+    .pagination { flex-wrap: wrap; gap: .25rem; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }

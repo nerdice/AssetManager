@@ -25,3 +25,35 @@ _ide_helper.php
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+# Local environment files and credentials
+.env
+.env.*
+!.env.example
+/auth.json
+
+# Dependencies and generated assets
+/vendor/
+/node_modules/
+/public/build/
+/public/hot
+/public/storage
+
+# Local runtime data
+/storage/*.key
+/storage/pail/
+/storage/logs/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/app/private/*
+/storage/app/public/*
+/bootstrap/cache/*.php
+
+# Local database files and exports
+/database/*.sqlite*
+*.sql
+*.sql.gz
+
+# macOS files
+.DS_Store

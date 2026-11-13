@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use App\Models\User;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\NoProfanity;
 use Illuminate\Validation\Rule;
 
 class ProfileUpdateRequest extends FormRequest
@@ -17,13 +18,15 @@ class ProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['bail', 'required', 'string', 'max:255', new NoProfanity],
             'email' => [
+                'bail',
                 'required',
                 'string',
                 'lowercase',
                 'email',
                 'max:255',
+                new NoProfanity,
                 Rule::unique(User::class)->ignore($this->user()->id),
             ],
         ];
